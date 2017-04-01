@@ -26,7 +26,11 @@ public abstract class NavigationView<T> extends LinearLayout implements Bindable
 
     protected abstract String getNavigationItemTitle(T data);
 
-    protected abstract void onNavigationItemClick(T data);
+    protected abstract void onNavigationItemClick(T data, int index);
+
+    private Context context;
+    int ROW;
+    int COLUMN;
 
     public NavigationView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -47,8 +51,8 @@ public abstract class NavigationView<T> extends LinearLayout implements Bindable
         }
 
         final int size = data.size();
-        final int ROW = size / maxColumn + (size % maxColumn == 0 ? 0 : 1);
-        final int COLUMN = ROW == 1 ? size : maxColumn;
+        ROW = size / maxColumn + (size % maxColumn == 0 ? 0 : 1);
+        COLUMN = ROW == 1 ? size : maxColumn;
 
         for (int row = 0; row < ROW; row++) {
             LinearLayout rowLayout = new LinearLayout(getContext());
@@ -66,17 +70,36 @@ public abstract class NavigationView<T> extends LinearLayout implements Bindable
         }
     }
 
+    private int getClickedItemIndex(View v) {
+        int index = -1;
+        ViewGroup vRow;
+        View vItem;
+        for (int i = 0; i < ROW; i++) {
+            vRow = (ViewGroup) getChildAt(i);
+            for (int j = 0; j < COLUMN; j++) {
+                vItem = vRow.getChildAt(j);
+                if (vItem == v) {
+                    index = i * COLUMN + j;
+                    return index;
+                }
+            }
+        }
+        return index;
+    }
+
     @Override
     public void onClick(View v) {
         T data = (T) v.getTag();
-        onNavigationItemClick(data);
+        int index = getClickedItemIndex(v);
+        if (index == -1)
+            return;
+        onNavigationItemClick(data, index);
     }
 
     private View createNavigationItem(T data) {
         View view = View.inflate(getContext(), R.layout.navigation_item, null);
         ((ImageView) view.findViewById(android.R.id.icon)).setImageResource(getNavigationItemImage(data));
         ((TextView) view.findViewById(android.R.id.title)).setText(getNavigationItemTitle(data));
-
         LayoutParams lp = new LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT);
         lp.weight = 1;
         view.setLayoutParams(lp);
