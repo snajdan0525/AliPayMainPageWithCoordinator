@@ -29,8 +29,8 @@ public class AlipayMainPageActivity extends AppCompatActivity {
         cardView.setRadius(20);//设置图片圆角的半径大小
         cardView.setCardElevation(8);//设置阴影部分大小
         cardView.setContentPadding(5, 5, 5, 5);//设置图片距离阴影大小
-        recyclerView = (RecyclerView) findViewById(R.id.rv);
-        initAdapter();
+      //  recyclerView = (RecyclerView) findViewById(R.id.rv);
+        //initAdapter();
 //      recyclerView.setAdapter(new RecyclerView.Adapter() {
 //            @Override
 //            public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
