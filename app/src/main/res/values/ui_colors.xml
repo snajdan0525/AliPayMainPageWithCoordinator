@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ui_bg">#fff</color>
+    <color name="ui_bg_pressed">#e8e8e8</color>
+    <color name="ui_text">#333333</color>
+    <color name="ui_text_gray">#565758</color>
+</resources>

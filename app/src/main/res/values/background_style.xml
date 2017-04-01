@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CommonTransparentBackground">
+        <item name="android:background">@drawable/default_transparent_list_item_selector</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="CommonBackground">
+        <item name="android:background">@drawable/default_list_item_selector</item>
+        <item name="android:clickable">true</item>
+    </style>
+</resources>

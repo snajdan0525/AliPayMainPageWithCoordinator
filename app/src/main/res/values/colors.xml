@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#fe7244</color>
+    <color name="colorPrimaryDark">#fe7244</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorInitFloatBackground">#00000000</color>
+    <color name="colorCollapsedFloatBackground">#e4e4e4</color>
+    <color name="blackk">#000000</color>
+    <color name="common_bg_highlight">#ffd1d2d3</color>
+    <color name="common_bg_dark">#f2f3f4</color>
+    <color name="common_bg">#fff</color>
+
+    <color name="common_text">#333</color>
+</resources>
