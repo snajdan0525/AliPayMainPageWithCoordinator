@@ -21,13 +21,13 @@ public class sNajdanViewPager extends ViewPager {
      */
     private static final int SETUP_DELAY = 300;
 
-    public BqViewPager(Context context, AttributeSet attrs) {
+    public sNajdanViewPager(Context context, AttributeSet attrs) {
         super(context, attrs);
         listerWrapper = new OnPageChangeListenerWrapper();
         setOnPageChangeListener(listerWrapper);
     }
 
-    public BqViewPager(Context context) {
+    public sNajdanViewPager(Context context) {
         super(context);
         listerWrapper = new OnPageChangeListenerWrapper();
         setOnPageChangeListener(listerWrapper);

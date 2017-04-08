@@ -13,6 +13,9 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 
+import com.snalopainen.coordinatorlayout.alipay.demo.R;
+import com.snalopainen.coordinatorlayout.alipay.demo.util.DensityUtil;
+
 import java.lang.ref.WeakReference;
 
 
@@ -80,7 +83,7 @@ public class Slider extends RelativeLayout implements View.OnClickListener, View
         @Override
         public void destroyItem(ViewGroup container, int position, Object object) {
             container.removeView((View) object);
-        }
+        }ui_attrs.xml
 
         @Override
         public boolean isViewFromObject(View view, Object object) {

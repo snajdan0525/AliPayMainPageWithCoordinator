@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Slider">
+        <attr name="sliderRatio" format="float" />
+        <attr name="sliderAutoSwitch" format="boolean" />
+        <attr name="sliderLoop" format="boolean" />
+        <attr name="sliderIndicator">
+            <enum name="dot" value="0" />
+            <enum name="number" value="1" />
+        </attr>
+        <attr name="sliderIndicatorGravity" />
+    </declare-styleable>
+
+</resources>
