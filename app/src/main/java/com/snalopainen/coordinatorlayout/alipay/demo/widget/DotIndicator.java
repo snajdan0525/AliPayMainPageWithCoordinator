@@ -5,7 +5,6 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 
-import com.boqii.android.framework.util.DensityUtil;
 import com.snalopainen.coordinatorlayout.alipay.demo.util.DensityUtil;
 
 /**
