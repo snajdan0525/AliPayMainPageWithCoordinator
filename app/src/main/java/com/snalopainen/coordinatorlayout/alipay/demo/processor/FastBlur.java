@@ -1,4 +1,4 @@
-package com.snalopainen.coordinatorlayout.alipay.demo;
+package com.snalopainen.coordinatorlayout.alipay.demo.processor;
 
 import android.graphics.Bitmap;
 
