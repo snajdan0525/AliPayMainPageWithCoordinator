@@ -45,7 +45,7 @@ public class MainPagePullRefreshRecyclerView extends PullToRefreshRecyclerView {
         imageSlider.setRatio(2);
         /* !!!why? 防止recyclerview自动滚动。ref: https://www.zhihu.com/question/48726700 */
         imageSlider.setFocusable(true);
-        imageSlider.setFocusableInTouchMode(true);`
+        imageSlider.setFocusableInTouchMode(true);
         for (int i = 0; i < 12; i++) {
             Action action = new Action();
             action.TypeId = resIds[i];
