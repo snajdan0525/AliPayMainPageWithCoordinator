@@ -25,6 +25,8 @@ import android.os.Build;
 import com.facebook.cache.common.CacheKey;
 import com.facebook.cache.common.SimpleCacheKey;
 import com.facebook.imagepipeline.request.BasePostprocessor;
+import com.snalopainen.coordinatorlayout.alipay.demo.processor.FastBlur;
+import com.snalopainen.coordinatorlayout.alipay.demo.processor.RSBlur;
 
 public class BlurPostprocessor extends BasePostprocessor {
 
