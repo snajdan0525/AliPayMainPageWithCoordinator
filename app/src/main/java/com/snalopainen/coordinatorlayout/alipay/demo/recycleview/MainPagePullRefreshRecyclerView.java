@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import com.handmark.pulltorefresh.library.extras.PullToRefreshRecyclerView;
 import com.snalopainen.coordinatorlayout.alipay.demo.R;
 import com.snalopainen.coordinatorlayout.alipay.demo.model.Action;
+import com.snalopainen.coordinatorlayout.alipay.demo.widget.ImageSlider;
 import com.snalopainen.coordinatorlayout.alipay.demo.widget.OperationActionNavigationView;
 
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class MainPagePullRefreshRecyclerView extends PullToRefreshRecyclerView {
     private int resIds[] = {R.drawable.icon_1, R.drawable.icon_2, R.drawable.icon_3, R.drawable.icon_4, R.drawable.icon_5,
             R.drawable.icon_6, R.drawable.icon_7, R.drawable.icon_8, R.drawable.icon_9,
             R.drawable.icon_2, R.drawable.icon_5, R.drawable.icon_8};
-
+    private ImageSlider imageSlider;
     public MainPagePullRefreshRecyclerView(Context context) {
         super(context);
         initView(context);
@@ -39,6 +40,12 @@ public class MainPagePullRefreshRecyclerView extends PullToRefreshRecyclerView {
     }
 
     private void initAdapter() {
+
+        imageSlider = new ImageSlider(getContext(), null);
+        imageSlider.setRatio(2);
+        /* !!!why? 防止recyclerview自动滚动。ref: https://www.zhihu.com/question/48726700 */
+        imageSlider.setFocusable(true);
+        imageSlider.setFocusableInTouchMode(true);`
         for (int i = 0; i < 12; i++) {
             Action action = new Action();
             action.TypeId = resIds[i];
@@ -65,6 +72,6 @@ public class MainPagePullRefreshRecyclerView extends PullToRefreshRecyclerView {
             public int getItemCount() {
                 return 3;
             }
-        });
+        }.addHeaderView(imageSlider));
     }
 }
