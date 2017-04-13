@@ -8,8 +8,11 @@ import android.view.ViewGroup;
 import com.handmark.pulltorefresh.library.extras.PullToRefreshRecyclerView;
 import com.snalopainen.coordinatorlayout.alipay.demo.R;
 import com.snalopainen.coordinatorlayout.alipay.demo.model.Action;
+import com.snalopainen.coordinatorlayout.alipay.demo.model.Banner;
 import com.snalopainen.coordinatorlayout.alipay.demo.widget.ImageSlider;
+import com.snalopainen.coordinatorlayout.alipay.demo.widget.Navigator;
 import com.snalopainen.coordinatorlayout.alipay.demo.widget.OperationActionNavigationView;
+import com.snalopainen.coordinatorlayout.alipay.demo.widget.Slider;
 
 import java.util.ArrayList;
 
@@ -40,7 +43,6 @@ public class MainPagePullRefreshRecyclerView extends PullToRefreshRecyclerView {
     }
 
     private void initAdapter() {
-
         imageSlider = new ImageSlider(getContext(), null);
         imageSlider.setRatio(2);
         /* !!!why? 防止recyclerview自动滚动。ref: https://www.zhihu.com/question/48726700 */
@@ -73,5 +75,30 @@ public class MainPagePullRefreshRecyclerView extends PullToRefreshRecyclerView {
                 return 3;
             }
         }.addHeaderView(imageSlider));
+    }
+
+
+    private void initBanner(ImageSlider imageSlider, final ArrayList<Banner> banners) {
+        if (banners == null || banners.isEmpty()) {
+            imageSlider.setVisibility(GONE);
+            return;
+        }
+        imageSlider.setVisibility(VISIBLE);
+
+        final int size = banners.size();
+        ArrayList<String> uris = new ArrayList<>(size + 1);
+        for (int i = 0; i < size; i++) {
+            Banner banner = banners.get(i);
+            uris.add(banner.ImageUrl);
+        }
+        imageSlider.setImages(uris);
+        imageSlider.setPlaceHolderId(R.drawable.bannner_default);
+        imageSlider.setOnSlideClickListener(new Slider.OnSlideClickListener() {
+            @Override
+            public void onSlideClick(Slider slider, int position) {
+                Banner banner = banners.get(position);
+                Navigator.jump(getContext(), banner.Type, banner.Url, banner.Title);
+            }
+        });
     }
 }

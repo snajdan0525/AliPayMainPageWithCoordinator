@@ -9,9 +9,6 @@ import android.support.annotation.DrawableRes;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 
-import com.boqii.android.framework.image.internal.processor.BlurPostprocessor;
-import com.boqii.android.framework.image.internal.processor.MirrorPostprocessor;
-import com.boqii.android.framework.image.internal.processor.ShadowPostprocessor;
 import com.facebook.common.util.UriUtil;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder;
@@ -27,6 +24,10 @@ import com.facebook.imagepipeline.image.ImageInfo;
 import com.facebook.imagepipeline.request.BasePostprocessor;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import com.snalopainen.coordinatorlayout.alipay.demo.NetworkStatus;
+import com.snalopainen.coordinatorlayout.alipay.demo.R;
+import com.snalopainen.coordinatorlayout.alipay.demo.processor.MirrorPostprocessor;
+import com.snalopainen.coordinatorlayout.alipay.demo.processor.ShadowPostprocessor;
 
 import java.io.File;
 
