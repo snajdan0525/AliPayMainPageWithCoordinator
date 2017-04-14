@@ -70,12 +70,12 @@ public class HeaderScrollingViewBehavior extends CoordinatorLayout.Behavior<Main
         } else {
             child.setTranslationY(dependency.getHeight() + dependency.getTranslationY() + progress * resources.getDimension(R.dimen.collapsed_header_height));
         }
-        if( progress != 1 ){
-            child.setMode(PullToRefreshBase.Mode.DISABLED);
-        }
-        if( progress == 1){
-            child.setMode(PullToRefreshBase.Mode.PULL_FROM_START);
-        }
+//        if( progress != 1 ){
+//            child.setMode(PullToRefreshBase.Mode.DISABLED);
+//        }
+//        if( progress == 1){
+//            child.setMode(PullToRefreshBase.Mode.PULL_FROM_START);
+//        }
         float scale = 1 + 0.4f * (1.f - progress);
         dependency.setScaleX(scale);
         dependency.setScaleY(scale);

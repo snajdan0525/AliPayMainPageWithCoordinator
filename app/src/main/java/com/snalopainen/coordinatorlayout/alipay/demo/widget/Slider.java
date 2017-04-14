@@ -1,6 +1,5 @@
 package com.snalopainen.coordinatorlayout.alipay.demo.widget;
 
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Handler;
@@ -17,9 +16,8 @@ import com.snalopainen.coordinatorlayout.alipay.demo.util.DensityUtil;
 
 import java.lang.ref.WeakReference;
 
-
 /**
- * Created by snajdan on 2017/4/8.
+ * Created by jinyan on 16/9/22.
  */
 
 public class Slider extends RelativeLayout implements View.OnClickListener, ViewPager.OnPageChangeListener {
@@ -238,19 +236,22 @@ public class Slider extends RelativeLayout implements View.OnClickListener, View
      * @param provider
      */
     public void setSliderProvider(SliderProvider provider) {
+        pause();
+
         sliderProvider = provider;
 
-        if (viewPager == null) {
-            viewPager = new sNajdanViewPager(getContext());
-            LayoutParams lp = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-            viewPager.setLayoutParams(lp);
-            addView(viewPager);
-            adapter = new Adapter();
-            viewPager.setAdapter(adapter);
-            viewPager.addOnPageChangeListener(this);
-        } else {
-            adapter.notifyDataSetChanged();
-        }
+        removeAllViewsInLayout();
+        viewPager = null;
+        indicator = null;
+
+        viewPager = new sNajdanViewPager(getContext());
+        LayoutParams lp = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        viewPager.setLayoutParams(lp);
+        addView(viewPager);
+        adapter = new Adapter();
+        viewPager.setAdapter(adapter);
+        viewPager.addOnPageChangeListener(this);
+
 
         setupIndicator();
 

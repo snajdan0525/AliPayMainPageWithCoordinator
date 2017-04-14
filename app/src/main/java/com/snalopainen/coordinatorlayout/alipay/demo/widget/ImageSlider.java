@@ -51,4 +51,28 @@ public class ImageSlider extends Slider {
         this.placeHolderId = placeHolderId;
         this.placeHolderScaleType = scaleType;
     }
+
+
+    public void setImagesWithResIDs(ArrayList<Integer> imagesResID ) {
+        final ArrayList<Integer> resIDs = imagesResID == null ? null : new ArrayList<>(imagesResID);
+
+        setSliderProvider(new SliderProvider() {
+            @Override
+            public int getCount() {
+                return resIDs == null ? 0 : resIDs.size();
+            }
+
+            @Override
+            public View getView(Context context, int position, View convertView) {
+                BqImageView bqImageView = new BqImageView(context);
+
+                bqImageView.suggestResize(getWidth(), getHeight());
+                if (placeHolderId != 0) {
+                    bqImageView.placeholder(placeHolderId, placeHolderScaleType);
+                }
+                bqImageView.scaleType(ImageView.ScaleType.FIT_XY).loadRes(resIDs.get(position));
+                return bqImageView;
+            }
+        });
+    }
 }

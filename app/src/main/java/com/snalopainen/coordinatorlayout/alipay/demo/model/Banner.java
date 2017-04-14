@@ -13,4 +13,6 @@ public class Banner implements BaseModel {
     public String Url;
 
     public String Title;
+
+    public int resID;
 }
