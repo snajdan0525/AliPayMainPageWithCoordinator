@@ -21,7 +21,7 @@ import java.util.List;
  * Created by snajdan on 2017/4/1.
  */
 
-public class MainPagePullRefreshRecyclerView extends RecyclerView {
+public class MainPagePullRefreshRecyclerView extends PullToRefreshRecyclerView {
     private Context context;
     private ArrayList<Action> actions = new ArrayList<>(3);
     private int resIds[] = {R.drawable.icon_1, R.drawable.icon_2, R.drawable.icon_3, R.drawable.icon_4, R.drawable.icon_5,
@@ -66,8 +66,8 @@ public class MainPagePullRefreshRecyclerView extends RecyclerView {
             actions.add(action);
         }
         int lineColor = 0xffe5e5e5;
-        addItemDecoration(new ListDivider(context, LinearLayoutManager.VERTICAL, lineColor));
-        setAdapter(new RecyclerViewBaseAdapter<ArrayList<Action>, SimpleViewHolder>() {
+        getRefreshableView().addItemDecoration(new ListDivider(context, LinearLayoutManager.VERTICAL, lineColor));
+        getRefreshableView().setAdapter(new RecyclerViewBaseAdapter<ArrayList<Action>, SimpleViewHolder>() {
             @Override
             protected SimpleViewHolder onCreateDataViewHolder(ViewGroup parent, int viewType) {
                 OperationActionNavigationView navigationView = new OperationActionNavigationView(parent.getContext(), null);
@@ -83,7 +83,7 @@ public class MainPagePullRefreshRecyclerView extends RecyclerView {
 
             @Override
             public int getItemCount() {
-                return 2;
+                return 3;
             }
         }.addHeaderView(imageSlider));
     }

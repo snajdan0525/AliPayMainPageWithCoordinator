@@ -445,20 +445,20 @@ public abstract class RecyclerViewBaseAdapter<Data, VH extends SimpleViewHolder>
 
     @Override
     final public SimpleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-//        if (viewType >= FOOTER_VIEW_TYPE_BASE) {
+//        if (viewType == FOOTER_VIEW_TYPE_BASE) {
 //            View footerView = footerViewList.get(viewType - FOOTER_VIEW_TYPE_BASE);
 //            if (footerView.getLayoutParams() == null) {
 //                footerView.setLayoutParams(createDefaultLayoutParam());
 //            }
 //            return new SimpleViewHolder(footerView);
 //        }
-//        if (viewType >= HEADER_VIEW_TYPE_BASE) {
-//            View headerView = headerViewList.get(viewType - HEADER_VIEW_TYPE_BASE);
-//            if (headerView.getLayoutParams() == null) {
-//                headerView.setLayoutParams(createDefaultLayoutParam());
-//            }
-//            return new SimpleViewHolder(headerView);
-//        }
+        if (viewType== HEADER_VIEW_TYPE_BASE) {
+            View headerView = headerViewList.get(viewType - HEADER_VIEW_TYPE_BASE);
+            if (headerView.getLayoutParams() == null) {
+                headerView.setLayoutParams(createDefaultLayoutParam());
+            }
+            return new SimpleViewHolder(headerView);
+        }
         VH vh = onCreateDataViewHolder(parent, viewType);
         if (vh.itemView.getLayoutParams() == null) {
             vh.itemView.setLayoutParams(createDefaultLayoutParam());

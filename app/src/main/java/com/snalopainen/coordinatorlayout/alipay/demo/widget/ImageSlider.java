@@ -64,13 +64,15 @@ public class ImageSlider extends Slider {
 
             @Override
             public View getView(Context context, int position, View convertView) {
-                BqImageView bqImageView = new BqImageView(context);
+                ImageView bqImageView = new ImageView(context);
 
-                bqImageView.suggestResize(getWidth(), getHeight());
-                if (placeHolderId != 0) {
-                    bqImageView.placeholder(placeHolderId, placeHolderScaleType);
-                }
-                bqImageView.scaleType(ImageView.ScaleType.FIT_XY).loadRes(resIDs.get(position));
+//                bqImageView.suggestResize(getWidth(), getHeight());
+//                if (placeHolderId != 0) {
+//                    bqImageView.placeholder(placeHolderId, placeHolderScaleType);
+//                }
+//                bqImageView.scaleType(ImageView.ScaleType.FIT_XY).loadRes(resIDs.get(position));
+                bqImageView.setImageResource(resIDs.get(position));
+                bqImageView.setScaleType(ImageView.ScaleType.FIT_XY);
                 return bqImageView;
             }
         });
