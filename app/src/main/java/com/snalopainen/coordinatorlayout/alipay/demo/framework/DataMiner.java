@@ -19,7 +19,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 数据矿工：专门负责从网络或者缓存挖数据
  * "矿工"中包含请求信息、返回结果等。
  * <p/>
- * Author: sajdan
+ * Author: JinYan
  */
 public class DataMiner {
 
