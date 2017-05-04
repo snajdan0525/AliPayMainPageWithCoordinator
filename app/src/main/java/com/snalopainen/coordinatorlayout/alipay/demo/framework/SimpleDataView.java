@@ -12,7 +12,7 @@ import com.boqii.android.framework.util.StringUtil;
 import com.boqii.android.framework.util.TaskUtil;
 
 /**
- * Created by jinyan on 16/9/9.
+ * Created by snajdan on 16/9/9.
  */
 public abstract class SimpleDataView<Data> extends RelativeLayout implements DataView<Data>, DataMiner.DataMinerObserver {
 
