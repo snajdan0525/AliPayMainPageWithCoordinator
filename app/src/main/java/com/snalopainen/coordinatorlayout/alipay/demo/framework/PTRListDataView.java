@@ -17,7 +17,7 @@ import com.boqii.android.framework.util.TaskUtil;
 import java.util.ArrayList;
 
 /**
- * Created by jinyan on 16/9/9.
+ * Created by snjdan on 16/9/9.
  */
 public abstract class PTRListDataView<Data> extends AdapterDataView<Data> implements PTRRecyclerView.PullToRefreshHandler {
 

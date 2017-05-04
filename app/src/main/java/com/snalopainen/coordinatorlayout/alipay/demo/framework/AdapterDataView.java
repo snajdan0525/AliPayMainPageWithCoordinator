@@ -14,7 +14,7 @@ import com.boqii.android.framework.util.TaskUtil;
 import java.util.ArrayList;
 
 /**
- * Created by jinyan on 16/9/21.
+ * Created by snajdan on 16/9/21.
  */
 
 abstract class AdapterDataView<Data> extends SimpleDataView<ArrayList<Data>> {
